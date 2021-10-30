@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-center">
+        <h1 class="mb-4">Are you sure you want to Delete {{product.name}}?</h1>
+    </div>
+    <div class="d-flex justify-content-center">
+        <form method="post">
+        {% csrf_token %} 
+        {{form.as_p}} 
+        <input class="button btn-outline-danger" type="submit" value="Confirm" />
+        <a class="button btn-info" href="{% url 'product_detail' product.pk %}">Cancel</a>
+        </form>
+    </div>
+</div>  
+{% endblock %}

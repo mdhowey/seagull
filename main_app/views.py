@@ -26,5 +26,29 @@ class ProductsList(TemplateView):
         else:
             context["products"] = Product.objects.all()
             # default header for not searching 
-            context["header"] = "Trending productss"
+            context["header"] = "Trending products"
         return context
+
+class ProductCreate(CreateView):
+    model = Product
+    fields = ['name', 'img', 'price', 'category', 'description']
+    template_name = "product_create.html"
+    success_url = "/products/"
+
+    def get_success_url(self):
+        return reverse('product_detail', kwargs={'pk': self.object.pk})
+
+class ProductDetail(DetailView):
+    model = Product
+    template_name = 'product_detail.html'
+
+class ProductUpdate(UpdateView):
+    model = Product
+    fields = ['name', 'img', 'price', 'category', 'description']
+    template_name = 'product_update.html'
+    success_url = '/products/'
+
+class ProductDelete(DeleteView):
+    model = Product
+    template_name = 'product_delete.html'
+    success_url = '/products/'

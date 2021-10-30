@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+    <a href="{% url 'products_list' %}" class="btn btn-info btn-lg">All Products</a>
+</div>
+<div class="row offset-3">
+    <div class="col-6 d-column">
+        <h1 class="display-4 font-weight-normal">{{product.name}}</h1>
+        <img src="{{product.img}}" class="rounded my-4" style="width: 24em; height: auto;" alt="{{product.name}}">
+        <div class="btn-group mb-3" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-outline-success">Buy</button>
+            <a href="{% url 'product_update' product.pk %}" type="button" class="btn btn-outline-warning">Edit</a>
+            <a href="{% url 'product_delete' product.pk %}" type="button" class="btn btn-outline-danger">Delete</a>
+        </div>
+        <p class="lead font-weight-normal">{{product.description}}</p>
+    </div>
+</div>
+
+{% endblock %}
