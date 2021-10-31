@@ -2,15 +2,105 @@
 {% block title %} | Home{% endblock %}
 {% block content %}
 <div class="container-fluid">
-    <h1>Products:</h1>
-    <div class="d-flex my-2">
-        <a href="{% url 'product_create' %}" class="btn btn-info btn-lg">Add Product</a>
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Seagull prodcuts</h1>
+            <p class="col-md-8 fs-4">Using our enormous network of suppliers, we've created the world's largest, most
+                extensive list of garbage that probably don't need, but should buy anyways! Is their another item 
+                the you should be on this page of garbabe? Awesome! Click the 'Add Product' button to share your 
+                garbage with the rest of us!</p>
+            <a href="{% url 'product_create' %}" class="btn btn-info btn-lg">Add Product</a>
+        </div>
+    </div>
+    <div class="container px-4 py-5" id="icon-grid">
+        <h2 class="pb-2 border-bottom">Product categories</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="fas fa-blender-phone"></i> Appliances</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="fas fa-car"></i> Auto & Tire</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="fas fa-baby-carriage"></i> Baby & Toddler</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="fas fa-smoking"></i> Cigarettes & Tabacco</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="fas fa-tshirt"></i> Clothing</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="far fa-gem"></i> Jewlery</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="fas fa-shoe-prints"></i> Shoes</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="fas fa-tv"></i> Electronics</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="fas fa-couch"></i> Furniture</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="fas fa-home"></i> Home Goods</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="fas fa-briefcase"></i> Office</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h4 class="fw-bold mb-0"><i class="fas fa-biking"></i> Sports</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, laudantium.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">All products</h1>
+            <p>Browse the entire Seagull catalog</p>
+        </div>
     </div>
     <div class="row d-flex justify-content-center mt-4">
-    {% for product in products %}
+        {% for product in products %}
         <div class="card m-4" style="width: 20rem;">
             <div class="d-flex justify-content-center">
-                <img src="{{product.img}}" class="card-img-top" alt="{{product.name}}" style="width: 20rem; height: auto;">
+                <img src="{{product.img}}" class="card-img-top" alt="{{product.name}}"
+                    style="width: 20rem; height: auto;">
                 </a>
             </div>
             <div class="card-body">
@@ -18,9 +108,12 @@
                 <h5 class="card-title">{{product.price}}</h5>
                 <p class="card-text">{{product.description}}</p>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="{% url 'product_detail' product.pk %}" type="button" class="btn btn-outline-success">View</a>
-                    <a href="{% url 'product_update' product.pk %}" type="button" class="btn btn-outline-warning">Edit</a>
-                    <a href="{% url 'product_delete' product.pk %}" type="button" class="btn btn-outline-danger">Delete</a>
+                    <a href="{% url 'product_detail' product.pk %}" type="button"
+                        class="btn btn-outline-success">View</a>
+                    <a href="{% url 'product_update' product.pk %}" type="button"
+                        class="btn btn-outline-warning">Edit</a>
+                    <a href="{% url 'product_delete' product.pk %}" type="button"
+                        class="btn btn-outline-danger">Delete</a>
                 </div>
             </div>
         </div>
@@ -28,5 +121,3 @@
     </div>
 </div>
 {% endblock %}
-
-

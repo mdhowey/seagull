@@ -7,9 +7,8 @@
     <div class="d-flex justify-content-center">
         <form method="post">
         {% csrf_token %} 
-        {{form.as_p}} 
-        <input class="button btn-outline-danger" type="submit" value="Confirm" />
-        <a class="button btn-info" href="{% url 'product_detail' product.pk %}">Cancel</a>
+        <input class="btn btn-outline-danger" type="submit" value="Confirm" />
+        <a class="btn btn-info" href="{% url 'product_detail' product.pk %}">Cancel</a>
         </form>
     </div>
 </div>  
