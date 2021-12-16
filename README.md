@@ -1,4 +1,4 @@
-# Seagull
+# Wayfarer
 
 ## Description
 
